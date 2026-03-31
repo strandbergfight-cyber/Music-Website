@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>教师周课表 - 共鸣音乐工坊</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#ffdad6",
+                        "background": "#fbf8ff",
+                        "on-primary-container": "#8690ee",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e0e0ff",
+                        "on-background": "#1b1b21",
+                        "on-tertiary-fixed": "#261900",
+                        "tertiary-container": "#402c00",
+                        "surface-bright": "#fbf8ff",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-primary-fixed": "#000767",
+                        "outline-variant": "#c6c5d4",
+                        "surface-container-high": "#eae7ef",
+                        "primary-container": "#1a237e",
+                        "tertiary-fixed": "#ffdea5",
+                        "surface-tint": "#4c56af",
+                        "surface-container-low": "#f5f2fb",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container": "#efecf5",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#526772",
+                        "inverse-primary": "#bdc2ff",
+                        "secondary-container": "#cfe6f2",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1b1b21",
+                        "surface": "#fbf8ff",
+                        "primary": "#000666",
+                        "inverse-on-surface": "#f2eff8",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-tertiary-container": "#b6924c",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e4e1ea",
+                        "inverse-surface": "#303036",
+                        "on-primary-fixed-variant": "#343d96",
+                        "secondary": "#4c616c",
+                        "surface-variant": "#e4e1ea",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "outline": "#767683",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-dim": "#dbd9e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#454652",
+                        "tertiary": "#251800"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c6c5d4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed-dim">
+<!-- Top Navigation Bar -->
+<header class="bg-[#fbf8ff]/80 dark:bg-slate-950/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0_32px_32px_rgba(27,27,33,0.06)]">
+<div class="flex justify-between items-center w-full px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="text-xl font-extrabold text-[#000666] font-headline tracking-tight">共鸣音乐工坊</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#454652] hover:bg-[#eae7ef] px-3 py-1 rounded transition-colors font-label font-medium" href="#">首页</a>
+<a class="text-[#000666] font-bold font-label" href="#">课表</a>
+<a class="text-[#454652] hover:bg-[#eae7ef] px-3 py-1 rounded transition-colors font-label font-medium" href="#">学员</a>
+<a class="text-[#454652] hover:bg-[#eae7ef] px-3 py-1 rounded transition-colors font-label font-medium" href="#">我的</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#454652] hover:bg-[#eae7ef] rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#454652] hover:bg-[#eae7ef] rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="Teacher Profile" data-alt="Close up professional portrait of a music teacher in a bright modern studio with blurred piano in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvOMOM7icNHCQzfR6lN5XKErv3yWEF-gH68BUoGqL5oNzwEkNGJARz8DoIuKqVNrfbFYukY1AXv1wpi6Vr9ABo2BkRv9bqfcDEoOF6VXgIyFhWwg5spQGtTtU5uYtdH0OKmO-61bqyMFjpLrKtEslkyPJjiPg0JWAIVoV--JU__CLc5JxihJKgTOu9-ZgrzXUhZU-MuBPnGRGup0hzrfvprInpkK1UNtPtdGk7ftfFprV_N30mCOp1aD7DG5OkX9GjHmyLRPFj3Fej"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-24 md:pb-8 px-4 md:px-8 max-w-[1600px] mx-auto min-h-screen">
+<!-- Page Header & Week Picker -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline text-4xl font-extrabold text-primary tracking-tight mb-2">周课表</h1>
+<p class="text-on-surface-variant font-body">管理您即将开始的授课安排与教室可用时间。</p>
+</div>
+<div class="flex items-center bg-surface-container-low p-1 rounded-xl shadow-sm">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors text-primary active:scale-95">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="px-6 py-2">
+<span class="font-headline font-bold text-lg text-primary">2024年11月24日 — 11月30日</span>
+</div>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-colors text-primary active:scale-95">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Schedule Grid Container -->
+<div class="bg-surface-container-low rounded-2xl p-4 shadow-sm overflow-x-auto custom-scrollbar">
+<div class="min-w-[1200px] grid grid-cols-7 gap-4">
+<!-- Day Column: Monday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周一</span>
+<span class="text-sm font-medium text-on-surface-variant">11月24日</span>
+</div>
+<!-- Lesson Card: Piano -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-[#8690ee] shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-primary-fixed-variant bg-primary-fixed px-2 py-0.5 rounded">钢琴</span>
+<span class="text-xs font-semibold text-on-surface-variant">09:00 上午</span>
+</div>
+<h4 class="font-headline font-bold text-primary mb-1">Elias Thorne</h4>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="meeting_room">meeting_room</span>
+<span class="text-xs font-medium">A教室</span>
+</div>
+</div>
+<!-- Lesson Card: Vocal -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-tertiary-fixed-dim shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded">声乐</span>
+<span class="text-xs font-semibold text-on-surface-variant">10:30 上午</span>
+</div>
+<h4 class="font-headline font-bold text-primary mb-1">Clara Vance</h4>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="meeting_room">meeting_room</span>
+<span class="text-xs font-medium">演奏厅</span>
+</div>
+</div>
+</div>
+<!-- Day Column: Tuesday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周二</span>
+<span class="text-sm font-medium text-on-surface-variant">11月25日</span>
+</div>
+<!-- Lesson Card: Guitar -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-[#cfe6f2] shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-secondary-fixed-variant bg-secondary-fixed px-2 py-0.5 rounded">吉他</span>
+<span class="text-xs font-semibold text-on-surface-variant">11:00 上午</span>
+</div>
+<h4 class="font-headline font-bold text-primary mb-1">Julian Gray</h4>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="meeting_room">meeting_room</span>
+<span class="text-xs font-medium">C教室</span>
+</div>
+</div>
+<div class="h-24 rounded-xl bg-surface-container/30 border-2 border-dashed border-outline-variant/30 flex items-center justify-center group cursor-pointer hover:bg-surface-container/50 transition-colors">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="add">add</span>
+</div>
+</div>
+<!-- Day Column: Wednesday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周三</span>
+<span class="text-sm font-medium text-on-surface-variant">11月26日</span>
+</div>
+<!-- Lesson Card: Piano -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-[#8690ee] shadow-sm">
+<div class="flex items-start justify-between mb-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-primary-fixed-variant bg-primary-fixed px-2 py-0.5 rounded">钢琴</span>
+<span class="text-xs font-semibold text-on-surface-variant">14:00 下午</span>
+</div>
+<h4 class="font-headline font-bold text-primary mb-1">Sophie Amore</h4>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="meeting_room">meeting_room</span>
+<span class="text-xs font-medium">A教室</span>
+</div>
+</div>
+</div>
+<!-- Day Column: Thursday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周四</span>
+<span class="text-sm font-medium text-on-surface-variant">11月27日</span>
+</div>
+<!-- Lesson Card: Theory -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-primary shadow-sm">
+<div class="flex items-start justify-between mb-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-white bg-primary px-2 py-0.5 rounded">乐理</span>
+<span class="text-xs font-semibold text-on-surface-variant">16:30 下午</span>
+</div>
+<h4 class="font-headline font-bold text-primary mb-1">小组课</h4>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="group">group</span>
+<span class="text-xs font-medium">4号教室</span>
+</div>
+</div>
+</div>
+<!-- Day Column: Friday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周五</span>
+<span class="text-sm font-medium text-on-surface-variant">11月28日</span>
+</div>
+<!-- Lesson Card: Vocal -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-tertiary-fixed-dim shadow-sm">
+<div class="flex items-start justify-between mb-3">
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded">声乐</span>
+<span class="text-xs font-semibold text-on-surface-variant">13:00 下午</span>
+</div>
+<h4 class="font-headline font-bold text-primary mb-1">Marcus Reed</h4>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="meeting_room">meeting_room</span>
+<span class="text-xs font-medium">B教室</span>
+</div>
+</div>
+</div>
+<!-- Day Column: Saturday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3 opacity-60">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周六</span>
+<span class="text-sm font-medium text-on-surface-variant">11月29日</span>
+</div>
+<div class="bg-surface-container/40 p-6 rounded-xl border border-outline-variant/10 text-center">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">无课程</span>
+</div>
+</div>
+<!-- Day Column: Sunday -->
+<div class="flex flex-col gap-4">
+<div class="px-2 py-3 opacity-60">
+<span class="block font-headline font-extrabold text-on-surface text-xl">周日</span>
+<span class="text-sm font-medium text-on-surface-variant">11月30日</span>
+</div>
+<div class="bg-surface-container/40 p-6 rounded-xl border border-outline-variant/10 text-center">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">校区闭馆</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats / Quick Actions -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary text-white p-6 rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-primary-fixed-dim font-label font-bold text-xs uppercase tracking-widest mb-2">总授课时长</p>
+<h3 class="font-headline text-4xl font-extrabold">24.5 <span class="text-lg font-medium">小时</span></h3>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-9xl" data-icon="timer">timer</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border-l-4 border-tertiary-fixed flex items-center gap-6">
+<div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed" data-icon="star">star</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">下一里程碑</h4>
+<p class="text-on-surface-variant text-sm">3 名学员正在备考钢琴 5 级</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border-l-4 border-secondary-fixed flex items-center gap-6">
+<div class="w-12 h-12 bg-secondary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed" data-icon="event_repeat">event_repeat</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-primary">可预约时段</h4>
+<p class="text-on-surface-variant text-sm">更新您的固定可授课时段</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden bg-white dark:bg-slate-900 fixed bottom-0 w-full z-50 border-t border-[#454652]/15 shadow-[0_-4px_24px_rgba(0,0,0,0.04)] h-20 flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center text-[#454652] dark:text-slate-500 opacity-70 hover:opacity-100 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000666] dark:text-blue-300 font-bold scale-110 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">课表</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#454652] dark:text-slate-500 opacity-70 hover:opacity-100 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">学员</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#454652] dark:text-slate-500 opacity-70 hover:opacity-100 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide">我的</span>
+</a>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed right-6 bottom-24 md:bottom-8 bg-gradient-to-br from-primary to-primary-container text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+<span class="absolute right-16 bg-primary px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">安排课程</span>
+</button>
+</body></html>

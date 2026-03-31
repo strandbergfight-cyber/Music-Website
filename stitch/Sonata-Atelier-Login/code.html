@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sonata Atelier - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#555f6f",
+              "primary-fixed-dim": "#bdc7da",
+              "on-secondary-container": "#61646c",
+              "on-primary-container": "#293342",
+              "secondary-fixed": "#e0e2eb",
+              "surface-tint": "#555f6f",
+              "surface-bright": "#fbf8fa",
+              "surface": "#fbf8fa",
+              "secondary": "#5b5e66",
+              "on-primary-fixed": "#121c2a",
+              "surface-dim": "#dcd9da",
+              "on-background": "#1b1b1d",
+              "on-surface": "#1b1b1d",
+              "inverse-on-surface": "#f3f0f1",
+              "on-secondary-fixed": "#181c22",
+              "surface-container-high": "#eae7e9",
+              "primary-fixed": "#d9e3f6",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#3f301a",
+              "on-primary-fixed-variant": "#3d4757",
+              "on-error": "#ffffff",
+              "inverse-surface": "#303031",
+              "tertiary-container": "#ad977a",
+              "tertiary-fixed": "#f8dfbe",
+              "inverse-primary": "#bdc7da",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed-variant": "#55442c",
+              "outline-variant": "#c5c6cc",
+              "secondary-fixed-dim": "#c4c6cf",
+              "on-tertiary-fixed": "#261906",
+              "tertiary-fixed-dim": "#dbc3a4",
+              "tertiary": "#6e5b42",
+              "surface-container-low": "#f6f3f4",
+              "primary-container": "#919bad",
+              "on-surface-variant": "#44474c",
+              "error-container": "#ffdad6",
+              "surface-variant": "#e4e2e3",
+              "secondary-container": "#e0e2eb",
+              "on-secondary-fixed-variant": "#43474e",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#e4e2e3",
+              "outline": "#75777d",
+              "error": "#ba1a1a",
+              "surface-container": "#f0edee",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "background": "#fbf8fa"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fdfcfb;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif-text {
+            font-family: 'Noto Serif', serif;
+        }
+        .ambient-glow {
+            box-shadow: 0 32px 64px -12px rgba(26, 28, 28, 0.04);
+        }
+        .piano-button-transition {
+            transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .ledger-input {
+            border: none;
+            border-bottom: 1px solid rgba(197, 198, 204, 0.3);
+            background: transparent;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .ledger-input:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom-color: #4E342E;
+        }
+        .login-gradient {
+            background: linear-gradient(135deg, #4E342E 0%, #361F1a 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+<!-- Top Navigation Anchor (Manual suppression of global nav as per Transactional rule) -->
+<header class="w-full px-8 py-12 md:px-20 md:py-16 flex justify-center items-center">
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 mb-4 flex items-center justify-center bg-[#4E342E] rounded-full text-[#efebe9]">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">piano</span>
+</div>
+<h1 class="serif-text text-3xl md:text-4xl font-semibold tracking-tighter text-[#4E342E]">Sonata Atelier</h1>
+<p class="font-body text-xs tracking-[0.2em] text-[#919bad] uppercase">The Resonant Conservatory</p>
+</div>
+</header>
+<main class="flex-grow w-full max-w-md px-6 flex flex-col justify-center pb-24">
+<!-- Login Card -->
+<div class="bg-white rounded-xl ambient-glow p-8 md:p-12 space-y-10 relative overflow-hidden">
+<!-- Asymmetric decorative element mimicking a musical score edge -->
+<div class="absolute top-0 right-0 w-32 h-32 opacity-[0.03] pointer-events-none translate-x-12 -translate-y-12">
+<span class="material-symbols-outlined text-9xl">music_note</span>
+</div>
+<!-- Segment Control -->
+<div class="flex p-1 bg-surface-container rounded-full">
+<button class="flex-1 py-3 text-sm font-semibold rounded-full piano-button-transition bg-white text-[#4E342E] shadow-sm">
+                    学生登录
+                </button>
+<button class="flex-1 py-3 text-sm font-medium rounded-full piano-button-transition text-[#919bad] hover:text-[#4E342E]">
+                    教师登录
+                </button>
+</div>
+<!-- Form Fields -->
+<div class="space-y-8">
+<div class="group relative">
+<label class="block text-[10px] tracking-widest text-[#919bad] uppercase font-bold mb-1">Phone Number</label>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#919bad] mr-3 text-sm">phone_iphone</span>
+<input class="w-full py-4 ledger-input text-[#1b1b1d] placeholder:text-outline-variant/50" placeholder="请输入手机号" type="tel"/>
+</div>
+</div>
+<div class="group relative">
+<label class="block text-[10px] tracking-widest text-[#919bad] uppercase font-bold mb-1">Password</label>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#919bad] mr-3 text-sm">lock</span>
+<input class="w-full py-4 ledger-input text-[#1b1b1d] placeholder:text-outline-variant/50" placeholder="请输入密码" type="password"/>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="space-y-6 pt-4">
+<button class="w-full py-5 login-gradient text-white rounded-lg font-semibold tracking-wide piano-button-transition hover:opacity-95 shadow-lg shadow-[#4E342E]/10 flex items-center justify-center space-x-2">
+<span class="serif-text">登录</span>
+</button>
+<div class="flex justify-center">
+<a class="text-xs font-medium text-[#4E342E] hover:opacity-70 piano-button-transition border-b border-transparent hover:border-[#4E342E]" href="#">
+                        忘记密码?
+                    </a>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-12 text-center">
+<p class="text-xs text-[#919bad] leading-relaxed">
+                还没有账号？<a class="text-[#4E342E] font-semibold underline underline-offset-4" href="#">联系学院管理员注册</a>
+</p>
+</footer>
+</main>
+<!-- Background Decoration -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<div class="absolute -bottom-24 -left-24 w-96 h-96 opacity-[0.02] rotate-12">
+<img class="w-full h-full object-cover rounded-full grayscale" data-alt="close-up of classical piano keys with shallow depth of field and soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh5izHI5Dfq73RxQuPzDAaBBX1ADeIyYgL_tgmLC1cp6MN-9bX4lT2m9O4qS8beOCkkiHIULNGuDxtkSk3f3xEvpORkwDWkuln2my2lDiAovZbP-Osz1TsaJdNToE5VcVtiTwdRa0CbUZoBOo915JYHrbK_1kivh1G1Xm-MUK-e9MkHqkx1WuYkEn_7apuhwrauevvceMavgvI6qbLOvWIUbDGTYXVnif9ArSDb9JFWpBVnyzLYM2S8nFd-_af2Rf8OO7x-gfLaDij"/>
+</div>
+<div class="absolute top-1/4 -right-12 w-64 h-64 opacity-[0.02] -rotate-6">
+<img class="w-full h-full object-cover rounded-full grayscale" data-alt="blurred silhouette of a musician playing cello in a sun-drenched wood-paneled room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDwWFiDLi2dLgBmkluGu9WxGF58Q_LN2t3NSUuwo5CcD2C2c02P2JfwswIuEabTFIs0jyb5gKxckPn2TCkQB-OmIThgYqS6EYMAe9qrc1JY5vCWSdNo3kE-1CMi9njNTI6YsqJ0B6s7OU7TTsBn-7ULxTzSkj7yCwJWk8j8h20qv81XsKRWL9tcX41sTB8XARSHWjewuQ-zIM2LlFabPCLmPxtoyTg4JttOgl1lAqPCkx7832NZcUnrwkD-_caDw8ZS313MMhv1_rT"/>
+</div>
+</div>
+</body></html>

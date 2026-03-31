@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#e5beb5",
+              "outline": "#827471",
+              "outline-variant": "#d4c3bf",
+              "on-tertiary-fixed": "#081f1b",
+              "primary-fixed": "#ffdad2",
+              "primary-container": "#4e342e",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#5c403a",
+              "surface-container-low": "#f3f3f3",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#cfe8e0",
+              "on-primary-fixed": "#2b1611",
+              "on-secondary-container": "#795c51",
+              "background": "#f9f9f9",
+              "surface-variant": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#354b46",
+              "on-secondary-fixed": "#2b160f",
+              "surface-container": "#eeeeee",
+              "on-surface": "#1a1c1c",
+              "tertiary": "#132925",
+              "surface-container-high": "#e8e8e8",
+              "on-background": "#1a1c1c",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary": "#361f1a",
+              "inverse-surface": "#2f3131",
+              "surface-dim": "#dadada",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-container": "#92aaa3",
+              "surface-tint": "#755750",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#f0f1f1",
+              "tertiary-fixed-dim": "#b3ccc5",
+              "secondary-container": "#fed7ca",
+              "secondary-fixed": "#ffdbce",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#e4beb2",
+              "secondary": "#75584d",
+              "surface-container-highest": "#e2e2e2",
+              "inverse-primary": "#e5beb5",
+              "on-surface-variant": "#504442",
+              "on-secondary-fixed-variant": "#5b4137",
+              "on-primary-container": "#c19c94",
+              "surface": "#f9f9f9",
+              "surface-bright": "#f9f9f9",
+              "tertiary-container": "#293f3a"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.wood-texture-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBCbVWbByxaqwZvARJxp2GVrvZkvPgSG4Igw1_ESWOO4JJxD5nIrZxCU5BXh85uC2FDOYAO4n0Ch_5HL8ckCdxQKi0i9EnCWZG53VzgjXntwCrc0mcEf8c90PQNttvHjcW3AT3781bbdzQ-sIe5cNsejGDNuYFia4ZAX3_bNYHWpAoH1OaowTDhdSdoGxjd9P_r99UsPoNGLzb9Y5Bbwhht0FWBAdWn6P5dLhElniAudqPyFRg7D5-AkaMiDOw555a2rz5kZQCOtFgg);
+    opacity: 0.03;
+    pointer-events: none
+    }
+.editorial-shadow {
+    box-shadow: 0 20px 40px -15px rgba(26, 28, 28, 0.04)
+    }
+body {
+    background-color: #f9f9f9;
+    color: #1a1c1c;
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased
+    }</style>
+</head>
+<body class="bg-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md fixed top-0 z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Student profile avatar" class="w-10 h-10 rounded-full object-cover ring-1 ring-outline-variant/30" data-alt="Close-up portrait of a young male student in a soft lit indoor setting with warm neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiSzfSiUEXqcmQDaaT0gLJyq_4lpo1GIVjsp7O8DQToNWUnbo0AZEQXeYleXtvgTTzrlIToj93WIDRN0fDrgb1sl2bM_44CRe_D6ntDe2qK1sMZWo9w1HD2HnBEVYW4WzaFUTjWv96XCG6GlWIqwqcQYL40ho_Y7cg4tzNOWSbH9mirkMrljM3w3UDyIbBpdy1og4AG32zuXkmqqHoAPgCyn9WSCW0QPlFmI5MBofnCqdM1TBK7PpLQ2ABLV4w7lnG9agWtCjcuLxd"/>
+<span class="font-serif italic text-xl text-stone-900 dark:text-stone-50">The Resonant Atelier</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-stone-800 dark:text-stone-100 hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-screen-md mx-auto pt-24 px-6 space-y-12">
+<!-- Welcome Section -->
+<section class="mt-8">
+<span class="font-sans font-semibold uppercase tracking-wider text-[11px] text-primary">Welcome Back</span>
+<h1 class="font-serif text-4xl tracking-tight text-on-surface mt-2">你好, 小明</h1>
+</section>
+<!-- Lesson Balance Card -->
+<section class="relative">
+<div class="bg-primary-container rounded-[2rem] p-8 editorial-shadow overflow-hidden relative">
+<!-- Decorative Elements -->
+<div class="absolute inset-0 wood-texture-overlay"></div>
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-on-primary-container/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col space-y-8">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-sans font-semibold uppercase tracking-widest text-[10px] text-on-primary-container/80">Lesson Balance</p>
+<h2 class="font-serif text-3xl text-on-primary mt-1">剩余课时</h2>
+</div>
+<div class="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+<span class="text-on-primary font-serif italic text-2xl">28</span>
+<span class="text-on-primary/60 text-sm ml-1">/ 40</span>
+</div>
+</div>
+<!-- Elegant Progress Bar -->
+<div class="space-y-3">
+<div class="h-2 w-full bg-stone-800/40 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-secondary-fixed-dim rounded-full shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]" style="width: 70%"></div>
+</div>
+<div class="flex justify-between text-[11px] font-medium tracking-tighter text-on-primary-container/70 uppercase">
+<span>Consumed: 12</span>
+<span>Total Purchased: 40</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+<p class="text-[10px] text-on-primary-container/60 uppercase tracking-widest">Attendance Rate</p>
+<p class="text-xl text-on-primary font-serif">94%</p>
+</div>
+<div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+<p class="text-[10px] text-on-primary-container/60 uppercase tracking-widest">Practice Hours</p>
+<p class="text-xl text-on-primary font-serif">12.5h</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Lessons Section -->
+<section class="space-y-8">
+<div class="flex items-center justify-between">
+<h3 class="font-serif text-2xl text-on-surface">近期课程</h3>
+<a class="font-sans font-semibold uppercase tracking-wider text-[11px] text-secondary hover:opacity-70 transition-opacity" href="#">View Calendar</a>
+</div>
+<div class="space-y-6">
+<!-- Lesson Card 1 -->
+<div class="group relative bg-surface-container-lowest p-6 rounded-[1.5rem] editorial-shadow flex items-center gap-6 transition-all duration-400 hover:scale-[1.02]">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex flex-col items-center justify-center shrink-0">
+<span class="font-serif text-xl text-primary leading-none">12</span>
+<span class="text-[10px] font-bold uppercase text-primary/60 tracking-tighter">OCT</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-serif text-xl text-on-surface">钢琴课</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed-variant uppercase">Instrumental</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>14:00</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="meeting_room">meeting_room</span>
+<span>Room 301</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant/50 tracking-widest mb-1">Teacher</p>
+<p class="font-serif text-on-surface">Zhang</p>
+</div>
+</div>
+<!-- Lesson Card 2 -->
+<div class="group relative bg-surface-container-lowest p-6 rounded-[1.5rem] editorial-shadow flex items-center gap-6 transition-all duration-400 hover:scale-[1.02]">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex flex-col items-center justify-center shrink-0">
+<span class="font-serif text-xl text-primary leading-none">15</span>
+<span class="text-[10px] font-bold uppercase text-primary/60 tracking-tighter">OCT</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-serif text-xl text-on-surface">吉他课</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed-variant uppercase">Instrumental</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>10:00</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="meeting_room">meeting_room</span>
+<span>Room 102</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant/50 tracking-widest mb-1">Teacher</p>
+<p class="font-serif text-on-surface">Li</p>
+</div>
+</div>
+<!-- Lesson Card 3 -->
+<div class="group relative bg-surface-container-lowest p-6 rounded-[1.5rem] editorial-shadow flex items-center gap-6 transition-all duration-400 hover:scale-[1.02]">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high flex flex-col items-center justify-center shrink-0">
+<span class="font-serif text-xl text-primary leading-none">18</span>
+<span class="text-[10px] font-bold uppercase text-primary/60 tracking-tighter">OCT</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-serif text-xl text-on-surface">声乐课</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container text-on-secondary-container uppercase">Vocal</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>16:30</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="meeting_room">meeting_room</span>
+<span>Room 205</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold uppercase text-on-surface-variant/50 tracking-widest mb-1">Teacher</p>
+<p class="font-serif text-on-surface">Wang</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Content Section: Recent Achievements -->
+<section class="grid grid-cols-2 gap-6 pb-12">
+<div class="col-span-2">
+<h3 class="font-serif text-2xl text-on-surface mb-6">Learning Moments</h3>
+</div>
+<div class="relative aspect-square rounded-[2rem] overflow-hidden group">
+<img alt="Piano close-up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of polished black grand piano keys with warm reflections of a wooden interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt1p8AanwLl6ONHaMHkNrbfdP-XyTF9y5wTdhrSB76n9DZCG9dvw6ZT8mdNKzcfJihf8MvLYmV8Je8qn4rKA7fZyJXSJyXV23_KUJabNz5MCNt7UFIRxLucRu2wnlhlV9mpt1LZg2vcAvI3gP9xxmYUxaVeEkRSSephQ2F_GZLd35wO50il3q-pSKmNY4Il6NJIF2sAE_tVtEdnRY8r7-WuTpOFPZ34RBil28TejOF0HX9ev7JC_bHGQqihxmeSWr4vrGP-7nHLbhs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+<p class="text-white font-serif text-lg">New Repertoire</p>
+<p class="text-white/70 text-[10px] uppercase tracking-widest">Added 2 days ago</p>
+</div>
+</div>
+<div class="relative aspect-square rounded-[2rem] overflow-hidden group">
+<img alt="Guitar training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed shot of acoustic guitar strings and mahogany body in a sunlit music studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBV-rb-R5Xpp9UD7qD6XO1iB86DWbpWj0_VXobVxABrIZJa9j11P0BDXxzXxguWWR5TEZswnn7ounijXvTwD99NaPwoTOJlQ_Bd_sEAQTCFWeKYQuiBFoqU1xhUcQQS8uU9-sF31dNSMNQpRErMFtMkpqv0F_Sz0l54xgkKMSeKjtywl5ta0M0aXhB5ew6MnsN6LnC24sOdKZ5qgEQi1Fv2y5vFvKzX-aKU_Plw0MmLTs0NZEF01o5vGwn2kCepOE_w2o4y4XGK-sp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+<p class="text-white font-serif text-lg">Chord Progress</p>
+<p class="text-white/70 text-[10px] uppercase tracking-widest">Added 5 days ago</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-xl fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 z-50 rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.03)] dark:shadow-none">
+<!-- Home Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-stone-200/50 dark:bg-stone-800/50 text-[#4E342E] dark:text-[#EFEBE9] rounded-2xl px-5 py-2 transition-all scale-90 duration-400 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-serif text-[10px] tracking-tight mt-1">首页</span>
+</a>
+<!-- Bookings Tab -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-[#361F1a] dark:hover:text-stone-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event_upcoming">event_upcoming</span>
+<span class="font-serif text-[10px] tracking-tight mt-1">约新课</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-[#361F1a] dark:hover:text-stone-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-serif text-[10px] tracking-tight mt-1">我的</span>
+</a>
+</nav>
+</body></html>

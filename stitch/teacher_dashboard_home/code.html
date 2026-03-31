@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>教师仪表盘 - 共鸣音乐工坊</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "secondary-fixed-dim": "#b4cad6",
+                "secondary-fixed": "#cfe6f2",
+                "surface-container-highest": "#e4e1ea",
+                "tertiary-fixed-dim": "#e9c176",
+                "on-secondary-fixed-variant": "#354a53",
+                "surface-bright": "#fbf8ff",
+                "secondary": "#4c616c",
+                "surface-container-low": "#f5f2fb",
+                "on-tertiary-fixed-variant": "#5d4201",
+                "surface-container-lowest": "#ffffff",
+                "on-error": "#ffffff",
+                "primary-fixed": "#e0e0ff",
+                "primary-fixed-dim": "#bdc2ff",
+                "tertiary-container": "#402c00",
+                "surface": "#fbf8ff",
+                "on-primary-container": "#8690ee",
+                "error-container": "#ffdad6",
+                "outline": "#767683",
+                "on-surface": "#1b1b21",
+                "on-tertiary-container": "#b6924c",
+                "inverse-surface": "#303036",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#eae7ef",
+                "on-primary-fixed-variant": "#343d96",
+                "inverse-on-surface": "#f2eff8",
+                "primary-container": "#1a237e",
+                "tertiary-fixed": "#ffdea5",
+                "background": "#fbf8ff",
+                "surface-container": "#efecf5",
+                "surface-tint": "#4c56af",
+                "on-primary": "#ffffff",
+                "surface-dim": "#dbd9e1",
+                "on-secondary-container": "#526772",
+                "outline-variant": "#c6c5d4",
+                "primary": "#000666",
+                "on-primary-fixed": "#000767",
+                "inverse-primary": "#bdc2ff",
+                "on-surface-variant": "#454652",
+                "on-tertiary": "#ffffff",
+                "error": "#ba1a1a",
+                "on-error-container": "#93000a",
+                "secondary-container": "#cfe6f2",
+                "on-secondary-fixed": "#071e27",
+                "on-tertiary-fixed": "#261900",
+                "on-background": "#1b1b21",
+                "tertiary": "#251800",
+                "surface-variant": "#e4e1ea"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf8ff]/80 backdrop-blur-xl no-border shadow-[0_4px_20px_-4px_rgba(27,27,33,0.04)]">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-['Manrope'] font-extrabold text-[#000666] tracking-tighter text-xl">共鸣音乐工坊</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#eae7ef] transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#eae7ef] transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden ring-2 ring-surface-container-high">
+<img alt="Teacher profile photo" class="w-full h-full object-cover" data-alt="Professional portrait of a middle-aged male guitar instructor with a warm smile in a brightly lit music studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV2htHRsfqWSlEwotxDo4_k7RISuTx_es-OBfqF-555j5YycOelbpPulxHuCgnHWd0PHnGBDKy-lTouBgx-LkfmMNt67-CHocRNnqx81_jwU_w0pVoaoatblRw8T48NqdtiWPiKHm8Rxt14_DFEQ_Uyk7LmYvhE1VXAMDWvhtppVmexDolzrEbnm2ClVekf_G68SJeHB1_uesbZ2rzJvi8foBjeschbN2b1n1_AdZ_QS_TcD0IZ6zRAj_FGMku6byPpCNNKMPSPHva"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-2xl mx-auto">
+<!-- Teacher Profile Section -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-1">
+<h2 class="font-headline font-extrabold text-4xl tracking-tight text-primary">Zhang Wei</h2>
+<p class="text-on-surface-variant font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="school">school</span>
+                    高级吉他讲师
+                </p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-md font-semibold shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+                    扫码签到
+                </button>
+<button class="flex items-center gap-2 bg-surface-container-highest text-on-primary-fixed-variant px-6 py-3 rounded-md font-semibold active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="calendar_view_week">calendar_view_week</span>
+                    周课表
+                </button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Today's Stats - Left Column -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_32px_rgba(27,27,33,0.04)] border-l-4 border-tertiary-fixed relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-on-surface-variant font-label font-medium mb-1">今日课程</p>
+<h3 class="text-5xl font-headline font-extrabold text-primary">5</h3>
+<div class="mt-4 flex items-center gap-2 text-primary font-semibold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>较昨日多 2 节</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-surface-container-high/30 rotate-12" data-icon="music_note">music_note</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_32px_rgba(27,27,33,0.04)] border-l-4 border-primary relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-on-surface-variant font-label font-medium mb-1">学员总数</p>
+<h3 class="text-5xl font-headline font-extrabold text-primary">12</h3>
+<div class="mt-4 flex items-center gap-2 text-on-surface-variant font-semibold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span>在读学员</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-surface-container-high/30 rotate-12" data-icon="groups">groups</span>
+</div>
+<!-- Secondary Visual Card -->
+<div class="bg-primary-container p-6 rounded-xl text-white relative overflow-hidden h-48 flex flex-col justify-end">
+<img alt="Guitar strings" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" data-alt="Extreme close-up of acoustic guitar strings with shallow depth of field and elegant warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADOOr7DZAG3jozD45wWqOPm-bGnww2Sa4r2l7ZIk15YwkIuKQYr83CevtnuF4oGJ3ej2GvywYmrCRbrk4g3JyXThR3te7R0UqcJ6Ge-p0yppyBC6ZzQDXWMJg9yetlaikokv8ALFDU0d2yUvb5Ty34tj7blGYZQ_PAtjSlSaFrICAGSeqrgXUjdNZx72KdqLE-Y7mgECRkAyKKO2WseySMHuQB4GwjAww9O7A-bJiti-YA0f1HNpteDurjKVoAoSosI91Q1rjdB3Ym"/>
+<div class="relative z-10">
+<h4 class="font-headline font-bold text-xl">练习亮点</h4>
+<p class="text-sm text-primary-fixed-dim mt-1">Xiao Ming 在视奏练习中达成了连续 10 天打卡。</p>
+</div>
+</div>
+</div>
+<!-- Today's Schedule - Right Column -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-xl p-1">
+<div class="bg-surface-container-lowest rounded-[calc(0.75rem-4px)] h-full p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline font-bold text-2xl text-primary flex items-center gap-3">
+                            今日课表
+                            <span class="px-3 py-1 bg-surface-container-high text-xs rounded-full font-label text-on-surface-variant">2024年11月24日</span>
+</h3>
+<button class="text-primary font-semibold text-sm hover:underline">查看全部</button>
+</div>
+<div class="space-y-4">
+<!-- Lesson Card 1 -->
+<div class="group flex items-center gap-6 p-6 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-300 ring-1 ring-black/[0.03]">
+<div class="w-24 text-center shrink-0">
+<p class="text-sm font-label font-bold text-primary">09:00</p>
+<p class="text-xs font-label text-on-surface-variant">10:00</p>
+</div>
+<div class="h-12 w-[2px] bg-primary/20 rounded-full"></div>
+<div class="flex-grow">
+<h4 class="font-headline font-bold text-lg">吉他课</h4>
+<div class="flex items-center gap-4 mt-1">
+<p class="flex items-center gap-1.5 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base" data-icon="person">person</span>
+                                        Xiao Ming
+                                    </p>
+<p class="flex items-center gap-1.5 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base" data-icon="meeting_room">meeting_room</span>
+                                        301教室
+                                    </p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_forward_ios">arrow_forward_ios</span>
+</button>
+</div>
+<!-- Lesson Card 2 -->
+<div class="group flex items-center gap-6 p-6 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-300 ring-1 ring-black/[0.03]">
+<div class="w-24 text-center shrink-0">
+<p class="text-sm font-label font-bold text-primary">14:00</p>
+<p class="text-xs font-label text-on-surface-variant">15:00</p>
+</div>
+<div class="h-12 w-[2px] bg-primary/20 rounded-full"></div>
+<div class="flex-grow">
+<h4 class="font-headline font-bold text-lg">钢琴课</h4>
+<div class="flex items-center gap-4 mt-1">
+<p class="flex items-center gap-1.5 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base" data-icon="person">person</span>
+                                        Li Hua
+                                    </p>
+<p class="flex items-center gap-1.5 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base" data-icon="meeting_room">meeting_room</span>
+                                        205教室
+                                    </p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_forward_ios">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<!-- Upcoming Indicator -->
+<div class="mt-12 p-6 border border-dashed border-outline-variant rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div>
+<p class="font-headline font-bold">下一节课将在 45 分钟后开始</p>
+<p class="text-sm text-on-surface-variant">请确认 205 教室已为 Li Hua 准备就绪。</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/30" data-icon="hourglass_empty">hourglass_empty</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-white shadow-[0_-8px_32px_rgba(27,27,33,0.06)] rounded-t-xl md:hidden">
+<div class="flex justify-around items-center px-4 pb-6 pt-2">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-[#000666] bg-[#f5f2fb] rounded-2xl px-6 py-2 transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] font-medium text-[11px]">首页</span>
+</a>
+<!-- Schedule -->
+<a class="flex flex-col items-center justify-center text-[#454652] px-6 py-2 hover:text-[#1A237E] transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="event_available">event_available</span>
+<span class="font-['Inter'] font-medium text-[11px]">课表</span>
+</a>
+<!-- Students -->
+<a class="flex flex-col items-center justify-center text-[#454652] px-6 py-2 hover:text-[#1A237E] transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="group">group</span>
+<span class="font-['Inter'] font-medium text-[11px]">学员</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-[#454652] px-6 py-2 hover:text-[#1A237E] transition-all duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Inter'] font-medium text-[11px]">我的</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Navigation Cluster (Top Right - Simulated via Bottom Nav Logic) -->
+<div class="hidden md:flex fixed top-4 right-[280px] z-[60] items-center gap-6">
+<nav class="flex items-center gap-8 px-8 py-2.5">
+<a class="text-[#000666] font-semibold text-sm border-b-2 border-primary pb-1" href="#">首页</a>
+<a class="text-[#454652] font-medium text-sm hover:text-primary transition-colors" href="#">课表</a>
+<a class="text-[#454652] font-medium text-sm hover:text-primary transition-colors" href="#">学员</a>
+<a class="text-[#454652] font-medium text-sm hover:text-primary transition-colors" href="#">我的</a>
+</nav>
+</div>
+</body></html>

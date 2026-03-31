@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>学员管理 - 共鸣音乐工坊</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-dim": "#dbd9e1",
+                "on-secondary-fixed": "#071e27",
+                "surface-bright": "#fbf8ff",
+                "secondary-container": "#cfe6f2",
+                "on-background": "#1b1b21",
+                "tertiary-container": "#402c00",
+                "surface-container-lowest": "#ffffff",
+                "outline": "#767683",
+                "inverse-primary": "#bdc2ff",
+                "on-tertiary-fixed": "#261900",
+                "surface-container": "#efecf5",
+                "surface": "#fbf8ff",
+                "error-container": "#ffdad6",
+                "error": "#ba1a1a",
+                "surface-container-high": "#eae7ef",
+                "on-tertiary-fixed-variant": "#5d4201",
+                "surface-container-highest": "#e4e1ea",
+                "on-primary-fixed-variant": "#343d96",
+                "tertiary-fixed": "#ffdea5",
+                "inverse-on-surface": "#f2eff8",
+                "on-secondary-fixed-variant": "#354a53",
+                "primary": "#000666",
+                "on-primary": "#ffffff",
+                "primary-container": "#1a237e",
+                "outline-variant": "#c6c5d4",
+                "on-primary-fixed": "#000767",
+                "on-primary-container": "#8690ee",
+                "tertiary-fixed-dim": "#e9c176",
+                "surface-tint": "#4c56af",
+                "on-tertiary": "#ffffff",
+                "secondary": "#4c616c",
+                "on-surface": "#1b1b21",
+                "background": "#fbf8ff",
+                "on-surface-variant": "#454652",
+                "on-secondary": "#ffffff",
+                "surface-container-low": "#f5f2fb",
+                "secondary-fixed-dim": "#b4cad6",
+                "secondary-fixed": "#cfe6f2",
+                "primary-fixed-dim": "#bdc2ff",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-secondary-container": "#526772",
+                "surface-variant": "#e4e1ea",
+                "primary-fixed": "#e0e0ff",
+                "tertiary": "#251800",
+                "on-tertiary-container": "#b6924c",
+                "inverse-surface": "#303036"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Manrope', sans-serif; }
+        .glass-header { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-3 shadow-[0_32px_32px_rgba(27,27,33,0.06)]">
+<div class="flex items-center gap-2">
+<span class="text-xl font-black text-[#000666] dark:text-blue-400 tracking-tighter brand-font">共鸣音乐工坊</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Teacher profile avatar" class="w-full h-full object-cover" data-alt="professional portrait of a music teacher with a friendly expression in a modern studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS3gPAOt8iPz9CYx60q4phdpPMTlZAVxfZ3F_zH8AHqcTgmpT1UyQS_khs0oO8WDIN00CcV8qFUZIm1pG38LHfKYAvguDCk_hkMupOCG5plslCaYNqHdhWcs8uVBcdCgcRNAhDsj41yTvLN6r1txgLgu4oosvUh83-r39soiU913-9BNcfTxhc18t9UbBT994ibh0dlF3ZrM3TooWbLBK-TSCLYY88jk38uNBFtE0TWzcX-Th9sDj9ppjX1SWsuEIZ14fyKYZLzrNm"/>
+</div>
+</div>
+</header>
+<main class="pt-20 px-6 max-w-5xl mx-auto">
+<!-- Pull to Refresh Indicator (Visual Only) -->
+<div class="flex flex-col items-center justify-center py-4 opacity-40">
+<span class="material-symbols-outlined animate-spin text-primary">sync</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1 font-label">松开刷新</span>
+</div>
+<!-- Header Section -->
+<div class="mb-8 mt-2">
+<h1 class="text-4xl font-extrabold tracking-tight text-primary mb-2">学员管理</h1>
+<p class="text-on-surface-variant font-body">管理您的学员列表，跟踪学习进度</p>
+</div>
+<!-- Search Bar Section -->
+<div class="relative mb-10 group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline-variant font-body transition-all" placeholder="搜索学员姓名..." type="text"/>
+<div class="absolute inset-y-0 right-4 flex items-center">
+<button class="p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Student Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+<!-- Student Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(27,27,33,0.04)] hover:shadow-[0_12px_32px_rgba(27,27,33,0.08)] transition-all duration-300 border-l-4 border-tertiary-fixed group overflow-hidden">
+<div class="p-5">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container ring-2 ring-surface-container-low transition-transform group-hover:scale-105 duration-300">
+<img alt="Clara's avatar" class="w-full h-full object-cover" data-alt="smiling young female student with glasses and dark hair looking at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9wbvY4-u35rIOl0JXf5XPWZRoX-6PDM-agPjp8e90rYPw7VFaMEfoW4HbO0OY06MtlQ551qqsUCs4hQVYsAI9x3L2h6eohnM1aZGLznxPs-Qn5MR1rz6e4D6rvgC4-6iO3ZbxQWfUnI_SZ1w_lqJ3PW8xoAm5v5t_vVw_8mFNB4etIbW7K6oMWQX9FM4dPCeeF1cHYl-xEbpP9ub0Ne9OeeS67h2tWsiT62PoWLhslNRWmell-VeQiUhds4o0VNj_CNpIwvyGkXVI"/>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface">Clara Henderson</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">piano</span>
+<span class="text-sm font-label uppercase tracking-wide">钢琴 - 5级</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full">
+<span class="text-xs font-bold">剩余 12 节</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>上次课程：2024-11-20 15:00</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:translate-x-1 transition-transform">
+                            详情 <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Student Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(27,27,33,0.04)] hover:shadow-[0_12px_32px_rgba(27,27,33,0.08)] transition-all duration-300 border-l-4 border-primary transition-all group overflow-hidden">
+<div class="p-5">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container ring-2 ring-surface-container-low transition-transform group-hover:scale-105 duration-300">
+<img alt="Marcus's avatar" class="w-full h-full object-cover" data-alt="young male student with curly hair and a creative artistic appearance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkfCJqGJoUTZr5H4le24nNs30z4Sd5k0ozRIbs1gUN5EQ7OyOdHAlrh2vZD8buslGwh5mjCBEcz1elGai88n-bNcja4bPU_G-q7s9cwLPxM83352NpCGqxDXbYYyvnT5EIA_0A2HEyUiEISy8Lxj6zKK-gp6z6S5V3ccYQ0hNbDrT3-b_iUfIL1ACL0dprKWe3UjWWr4MwkBP-7wU20Pm7MdHhCmX3yXh-p5z4dwteuouHBnwclDmwC-r6ihT0m62L3bNkdjUknmEc"/>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface">Marcus Thorne</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">straighten</span>
+<span class="text-sm font-label uppercase tracking-wide">小提琴 - 2级</span>
+</div>
+</div>
+</div>
+<div class="bg-error-container text-error px-3 py-1 rounded-full">
+<span class="text-xs font-bold">剩余 2 节</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>上次课程：2024-11-21 10:30</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:translate-x-1 transition-transform">
+                            详情 <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Student Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(27,27,33,0.04)] hover:shadow-[0_12px_32px_rgba(27,27,33,0.08)] transition-all duration-300 border-l-4 border-secondary-fixed transition-all group overflow-hidden">
+<div class="p-5">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container ring-2 ring-surface-container-low transition-transform group-hover:scale-105 duration-300">
+<img alt="Elena's avatar" class="w-full h-full object-cover" data-alt="focused young female student with a studious and elegant appearance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-uQSHXo_o6ZhvT2JKbiiU1jmYxmxIHMKxcV0Kov84lPSHIAVm5zFUDvpAZLT7LMKG2m6iTBjNHfIvSdfaVXFDOKtpdxlQKZoj8--xSCN0vwgxFUzfwS-YlFBFGN4-TgvUrWGdg0nUal6bBXvGctJymMzAOBU6dkKBoKx0XQ91YTsanGfspDuwLk4AovIHn7-7JYE8_fVUqmBx43v5-2Kzyqx0k51XpRpXJAFjjIwd_dWl7kam6xt0_M4F7dbJIkvdNm6Ls4Vihn_R"/>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface">Elena Rodriguez</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">music_note</span>
+<span class="text-sm font-label uppercase tracking-wide">大提琴 - 7级</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full">
+<span class="text-xs font-bold">剩余 24 节</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>上次课程：2024-11-19 16:45</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:translate-x-1 transition-transform">
+                            详情 <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Student Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(27,27,33,0.04)] hover:shadow-[0_12px_32px_rgba(27,27,33,0.08)] transition-all duration-300 border-l-4 border-outline-variant transition-all group overflow-hidden">
+<div class="p-5">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container ring-2 ring-surface-container-low transition-transform group-hover:scale-105 duration-300">
+<img alt="Julian's avatar" class="w-full h-full object-cover" data-alt="casual male student with a bright smile, wearing a hoodie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhqVB4iPhsU9xSGxl9ckgy025WIK5bpCRCq0GSpZ_yR7NSn9-p4N0vhmLFiaTcwz8O2eLUSbqdV2WcLAMk8Ga2AMNxuj876czGKhrOvlzZC27iaQ3yt4W9eBajqsSbUGOvtvplU1Kg49hbHG1eD9Ygm7W4-Eegb13pqhFNHK89vYJJnkHqRha2WTGKh_UqYVSsj-lbnTN6_YTC5wz7OsCsFmIC-TB3Avy37x5r_0wG343j8zOTUMd5Wj5McptsDz2LncJgxv7pn1eW"/>
+</div>
+<div>
+<h3 class="text-lg font-bold text-on-surface">Julian Banks</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">clarify</span>
+<span class="text-sm font-label uppercase tracking-wide">吉他 - 1级</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full">
+<span class="text-xs font-bold">剩余 8 节</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="text-[11px] text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>上次课程：2024-11-22 14:00</span>
+</div>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:translate-x-1 transition-transform">
+                            详情 <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State / Add New Placeholder -->
+<button class="w-full py-8 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center gap-2 text-outline-variant hover:text-primary hover:border-primary hover:bg-primary/5 transition-all duration-300 mb-20">
+<span class="material-symbols-outlined text-3xl">person_add</span>
+<span class="font-bold uppercase tracking-widest text-xs font-label">新增学员</span>
+</button>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-16 flex justify-around items-center px-4 pb-safe bg-white/90 dark:bg-slate-950/90 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_24px_rgba(27,27,33,0.04)] z-50">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 hover:text-[#000666] transition-all active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 hover:text-[#000666] transition-all active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase">课表</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000666] dark:text-blue-400 bg-[#f5f2fb] dark:bg-blue-900/20 rounded-xl px-4 py-1 active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase">学员</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 hover:text-[#000666] transition-all active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase">我的</span>
+</a>
+</nav>
+<!-- Floating Action Button - Rendered only on relevant screens -->
+<button class="fixed right-6 bottom-20 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-container text-white flex items-center justify-center shadow-lg active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</body></html>

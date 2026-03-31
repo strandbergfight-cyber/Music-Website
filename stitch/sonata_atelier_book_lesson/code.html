@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>约新课 - The Resonant Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#fbf8fa",
+              "on-tertiary-container": "#3f301a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#121c2a",
+              "tertiary-fixed-dim": "#dbc3a4",
+              "on-surface-variant": "#44474c",
+              "secondary-fixed": "#e0e2eb",
+              "secondary-fixed-dim": "#c4c6cf",
+              "surface-container-high": "#eae7e9",
+              "inverse-primary": "#bdc7da",
+              "surface-container-highest": "#e4e2e3",
+              "surface-container-low": "#f6f3f4",
+              "tertiary-fixed": "#f8dfbe",
+              "surface-bright": "#fbf8fa",
+              "on-tertiary-fixed": "#261906",
+              "surface-dim": "#dcd9da",
+              "surface-container": "#f0edee",
+              "primary": "#555f6f",
+              "secondary-container": "#e0e2eb",
+              "on-surface": "#1b1b1d",
+              "secondary": "#5b5e66",
+              "primary-fixed": "#d9e3f6",
+              "outline-variant": "#c5c6cc",
+              "primary-fixed-dim": "#bdc7da",
+              "surface-tint": "#555f6f",
+              "on-background": "#1b1b1d",
+              "on-secondary-fixed": "#181c22",
+              "inverse-on-surface": "#f3f0f1",
+              "background": "#fbf8fa",
+              "tertiary": "#6e5b42",
+              "outline": "#75777d",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#293342",
+              "error-container": "#ffdad6",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#55442c",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#43474e",
+              "inverse-surface": "#303031",
+              "on-secondary-container": "#61646c",
+              "surface-variant": "#e4e2e3",
+              "primary-container": "#919bad",
+              "on-primary-fixed-variant": "#3d4757",
+              "error": "#ba1a1a",
+              "tertiary-container": "#ad977a",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif SC", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf8fa;
+        }
+        .serif {
+            font-family: 'Noto Serif SC', serif;
+        }
+        /* Custom Scrollbar suppression */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-2">
+<h1 class="font-serif italic text-xl text-stone-900 dark:text-stone-50">The Resonant Atelier</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-stone-800 dark:text-stone-100 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Student profile avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a young music student with a calm expression in a warm-lit classical music studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcXx1ndPUGX6f9bHKvx0HZswL73Per3970SEuqcDQuQNzMq7OvR41_DesHaVe6EJFaK3Pjqh8sfUW0J0TnexqU1Hjkuj4iUtqc4YnU00hsaN8aRuJdxIxdKWj6ajCjEpIZBlqi-f23YqsCgnmwgpYR3iKRY8E3TlZfjQJ8KKRiMbZmZDEpj5IDbVay6cdTafUTwvKlwIjE742ljHFEKTeWtCkwMk7iPVjy7TJZK6YRRS0OzY6RwtWwLFND0z4SJV161cNeVzZx_vRz"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-10">
+<!-- Lesson Balance Header -->
+<section class="relative overflow-hidden bg-stone-100 dark:bg-stone-900 rounded-3xl p-8 transition-all duration-400">
+<div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<p class="font-sans font-semibold uppercase tracking-wider text-[11px] text-[#4E342E]/70 dark:text-[#D7CCC8]/70">剩余课时</p>
+<h2 class="font-serif text-4xl tracking-tight text-[#4E342E] dark:text-[#D7CCC8]">28 <span class="text-xl opacity-60">/ 40</span></h2>
+</div>
+<div class="w-full md:w-64 space-y-3">
+<div class="h-2 w-full bg-stone-200 dark:bg-stone-800 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary-container to-tertiary w-[70%] rounded-full shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]"></div>
+</div>
+<p class="font-sans text-[12px] text-right text-stone-500">已完成 70% 学习进度</p>
+</div>
+</div>
+<!-- Aesthetic Grain Texture -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
+</section>
+<!-- Date Selector -->
+<section class="space-y-6">
+<div class="flex items-baseline justify-between">
+<h3 class="font-serif text-2xl tracking-tight text-stone-800">选择日期</h3>
+<span class="font-sans font-semibold uppercase tracking-wider text-[11px] text-stone-400">2023年10月</span>
+</div>
+<div class="flex overflow-x-auto no-scrollbar gap-4 pb-2 -mx-2 px-2">
+<!-- Date Item Active -->
+<button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 bg-[#4E342E] text-stone-50 rounded-full shadow-lg transition-transform active:scale-90 duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]">
+<span class="font-sans text-[11px] uppercase tracking-tighter opacity-80">Fri</span>
+<span class="font-serif text-2xl font-bold">18</span>
+<div class="w-1 h-1 bg-stone-50 rounded-full mt-1"></div>
+</button>
+<!-- Date Item Inactive -->
+<button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 bg-surface-container-low text-stone-500 rounded-full hover:bg-stone-200/50 transition-all">
+<span class="font-sans text-[11px] uppercase tracking-tighter">Sat</span>
+<span class="font-serif text-2xl">19</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 bg-surface-container-low text-stone-500 rounded-full hover:bg-stone-200/50 transition-all">
+<span class="font-sans text-[11px] uppercase tracking-tighter">Sun</span>
+<span class="font-serif text-2xl">20</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 bg-surface-container-low text-stone-500 rounded-full hover:bg-stone-200/50 transition-all">
+<span class="font-sans text-[11px] uppercase tracking-tighter">Mon</span>
+<span class="font-serif text-2xl">21</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 bg-surface-container-low text-stone-500 rounded-full hover:bg-stone-200/50 transition-all">
+<span class="font-sans text-[11px] uppercase tracking-tighter">Tue</span>
+<span class="font-serif text-2xl">22</span>
+</button>
+<button class="flex-shrink-0 flex flex-col items-center justify-center w-16 h-24 bg-surface-container-low text-stone-500 rounded-full hover:bg-stone-200/50 transition-all">
+<span class="font-sans text-[11px] uppercase tracking-tighter">Wed</span>
+<span class="font-serif text-2xl">23</span>
+</button>
+</div>
+</section>
+<!-- Time Slot List -->
+<section class="space-y-6">
+<h3 class="font-serif text-2xl tracking-tight text-stone-800">可选时段</h3>
+<div class="space-y-4">
+<!-- Lesson Card 1: Available -->
+<div class="group bg-surface-container-lowest border border-outline-variant/10 rounded-3xl p-6 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-1">
+<div class="flex items-center gap-6">
+<div class="text-stone-800">
+<p class="font-serif text-xl font-bold">14:00</p>
+<p class="font-sans text-xs text-stone-400">15:00</p>
+</div>
+<div class="h-10 w-[1px] bg-stone-100"></div>
+<div>
+<p class="font-serif text-lg text-stone-800">张老师</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="group">group</span>
+<p class="font-sans text-[11px] text-tertiary font-semibold uppercase">剩余 2 个名额</p>
+</div>
+</div>
+</div>
+<button class="px-8 py-3 bg-[#4E342E] text-stone-50 font-sans font-semibold rounded-2xl shadow-lg shadow-[#4E342E]/20 active:scale-95 transition-transform duration-300">
+                        预约
+                    </button>
+</div>
+<!-- Lesson Card 2: Full -->
+<div class="bg-surface-container-low/50 border border-transparent rounded-3xl p-6 flex items-center justify-between opacity-80">
+<div class="flex items-center gap-6">
+<div class="text-stone-400">
+<p class="font-serif text-xl font-bold">15:30</p>
+<p class="font-sans text-xs">16:30</p>
+</div>
+<div class="h-10 w-[1px] bg-stone-200"></div>
+<div>
+<p class="font-serif text-lg text-stone-400">王老师</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-stone-300" data-icon="block">block</span>
+<p class="font-sans text-[11px] text-stone-300 font-semibold uppercase">暂无可预约名额</p>
+</div>
+</div>
+</div>
+<button class="px-8 py-3 bg-stone-200 text-stone-400 font-sans font-semibold rounded-2xl cursor-not-allowed">
+                        约满
+                    </button>
+</div>
+<!-- Lesson Card 3: Available -->
+<div class="group bg-surface-container-lowest border border-outline-variant/10 rounded-3xl p-6 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-1">
+<div class="flex items-center gap-6">
+<div class="text-stone-800">
+<p class="font-serif text-xl font-bold">17:00</p>
+<p class="font-sans text-xs text-stone-400">18:00</p>
+</div>
+<div class="h-10 w-[1px] bg-stone-100"></div>
+<div>
+<p class="font-serif text-lg text-stone-800">李老师</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="group">group</span>
+<p class="font-sans text-[11px] text-tertiary font-semibold uppercase">剩余 5 个名额</p>
+</div>
+</div>
+</div>
+<button class="px-8 py-3 bg-[#4E342E] text-stone-50 font-sans font-semibold rounded-2xl shadow-lg shadow-[#4E342E]/20 active:scale-95 transition-transform duration-300">
+                        预约
+                    </button>
+</div>
+</div>
+</section>
+<!-- Decorative Quote / Atelier Spirit -->
+<footer class="py-12 flex flex-col items-center text-center space-y-4 opacity-40">
+<div class="w-12 h-[1px] bg-stone-300"></div>
+<p class="font-serif italic text-stone-600 max-w-xs">"Music is the silence between the notes."</p>
+<div class="w-12 h-[1px] bg-stone-300"></div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-3 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-xl rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.03)] z-50">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-[#361F1a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-serif text-[10px] tracking-tight mt-1">首页</span>
+</a>
+<!-- Book (Active) -->
+<a class="flex flex-col items-center justify-center bg-stone-200/50 dark:bg-stone-800/50 text-[#4E342E] dark:text-[#EFEBE9] rounded-2xl px-6 py-2 transition-all scale-95 shadow-inner-soft" href="#">
+<span class="material-symbols-outlined" data-icon="event_upcoming" style="font-variation-settings: 'FILL' 1;">event_upcoming</span>
+<span class="font-serif text-[10px] tracking-tight mt-1 font-bold">约新课</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 hover:text-[#361F1a] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-serif text-[10px] tracking-tight mt-1">我的</span>
+</a>
+</nav>
+</body></html>

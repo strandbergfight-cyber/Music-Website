@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#fbf8fa",
+              "inverse-primary": "#bdc7da",
+              "on-secondary-fixed-variant": "#43474e",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#f8dfbe",
+              "secondary-container": "#e0e2eb",
+              "surface-container-high": "#eae7e9",
+              "primary-fixed": "#d9e3f6",
+              "on-tertiary-container": "#3f301a",
+              "secondary": "#5b5e66",
+              "surface-variant": "#e4e2e3",
+              "surface-dim": "#dcd9da",
+              "on-secondary-fixed": "#181c22",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#61646c",
+              "on-background": "#1b1b1d",
+              "error-container": "#ffdad6",
+              "surface-bright": "#fbf8fa",
+              "primary": "#555f6f",
+              "outline": "#75777d",
+              "tertiary-fixed-dim": "#dbc3a4",
+              "on-tertiary-fixed": "#261906",
+              "secondary-fixed-dim": "#c4c6cf",
+              "surface-container-highest": "#e4e2e3",
+              "on-error": "#ffffff",
+              "on-surface": "#1b1b1d",
+              "on-primary-container": "#293342",
+              "surface-tint": "#555f6f",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#303031",
+              "on-surface-variant": "#44474c",
+              "on-primary-fixed-variant": "#3d4757",
+              "primary-fixed-dim": "#bdc7da",
+              "outline-variant": "#c5c6cc",
+              "primary-container": "#919bad",
+              "surface-container-low": "#f6f3f4",
+              "on-tertiary-fixed-variant": "#55442c",
+              "background": "#fbf8fa",
+              "surface-container": "#f0edee",
+              "tertiary-container": "#ad977a",
+              "tertiary": "#6e5b42",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#f3f0f1",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#e0e2eb",
+              "on-primary-fixed": "#121c2a",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #fbf8fa; /* Parchment like surface */
+      }
+      .asymmetric-border {
+        border-radius: 40px 12px 40px 12px;
+      }
+    </style>
+</head>
+<body class="font-body text-on-surface">
+<!-- TopAppBar -->
+<nav class="bg-[#fdfcfb] dark:bg-[#1a1c1c]/80 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full fixed top-0 z-50">
+<div class="font-['Noto_Serif'] text-2xl italic text-[#361F1a] dark:text-[#EFEBE9]">Sonata Atelier</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#4E342E] dark:text-[#D7CCC8] hover:opacity-80 transition-opacity duration-400 cursor-pointer">settings</span>
+</div>
+</nav>
+<!-- Content Canvas -->
+<main class="pt-32 pb-40 px-6 max-w-2xl mx-auto space-y-12">
+<!-- Header: Profile Identity -->
+<section class="flex flex-col items-center text-center space-y-6">
+<div class="relative">
+<div class="w-32 h-32 rounded-full border-4 border-surface-container-highest overflow-hidden shadow-sm">
+<img alt="小明" class="w-full h-full object-cover" data-alt="close-up portrait of a thoughtful young man with short dark hair in a soft-lit photography studio, warm neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF3QQlR3yrJewXjJy3Sxz4DQFXtcGR9ean8N6CQSAOmRq2K0vhIyjDyR9TTvCeKy2TFzkFyECGI0gpTttjanwwxBXbLOv0o42feD6eADel0y-E0pTkgKvde6RRMjdGJUpRJ-UzIHCe0casZqEQ4ToJ6R46XuqvYPJpN-cUkjHjLKUeioaQKvbPqj4D-A9K8TLTRERs3dWw7NrligwJjKts4dHLqM3ZFQWViBNyvpahWuD4-2KGRwGhUWBrXCd1xXcGvMiDRhLAQl4H"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-tertiary text-on-tertiary px-4 py-1 rounded-full text-xs font-label tracking-widest uppercase">
+                    金牌会员
+                </div>
+</div>
+<div class="space-y-1">
+<h1 class="font-headline text-4xl font-medium tracking-tight text-[#361F1a]">小明</h1>
+<p class="font-label text-sm text-secondary tracking-widest uppercase">Senior Violin Student</p>
+</div>
+</section>
+<!-- Bento Menu Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Large Card: Schedule -->
+<div class="md:col-span-2 group p-8 bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] border border-outline-variant/10 flex items-center justify-between hover:bg-surface-container transition-colors duration-400 cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-tertiary-fixed flex items-center justify-center rounded-xl text-[#4E342E]">
+<span class="material-symbols-outlined text-3xl">calendar_today</span>
+</div>
+<div>
+<h3 class="font-headline text-xl text-[#4E342E]">我的课程表</h3>
+<p class="text-sm text-secondary">Next: Music Theory - 3PM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+<!-- Medium Cards -->
+<div class="group p-6 bg-surface-container-low rounded-xl flex items-center gap-4 hover:shadow-md transition-all duration-400 cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<span class="font-body font-medium text-[#4E342E]">课时消费记录</span>
+</div>
+<div class="group p-6 bg-surface-container-low rounded-xl flex items-center gap-4 hover:shadow-md transition-all duration-400 cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<span class="font-body font-medium text-[#4E342E]">购买课时</span>
+</div>
+<div class="group p-6 bg-surface-container-low rounded-xl flex items-center gap-4 hover:shadow-md transition-all duration-400 cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">piano</span>
+</div>
+<span class="font-body font-medium text-[#4E342E]">我的乐器</span>
+</div>
+<div class="group p-6 bg-surface-container-low rounded-xl flex items-center gap-4 hover:shadow-md transition-all duration-400 cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<span class="font-body font-medium text-[#4E342E]">邀请好友</span>
+</div>
+<!-- Full Width Small Rows -->
+<div class="md:col-span-2 space-y-2 pt-4">
+<div class="flex items-center justify-between p-4 bg-transparent border-b border-outline-variant/20 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">contact_support</span>
+<span class="text-[#4E342E] font-medium">联系机构</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">open_in_new</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-transparent border-b border-outline-variant/20 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">settings</span>
+<span class="text-[#4E342E] font-medium">设置</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Footer Section -->
+<footer class="mt-20 py-12 border-t border-outline-variant/10 text-center">
+<h2 class="font-headline text-2xl italic text-[#361F1a] mb-6">鸣奏画室 (Sonata Atelier)</h2>
+<div class="space-y-3 font-body text-sm text-secondary tracking-wide">
+<p class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">call</span>
+                    Tel: 010-12345678
+                </p>
+<p class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">location_on</span>
+                    北京市朝阳区艺术园区A座
+                </p>
+</div>
+<div class="mt-8 flex justify-center gap-8 opacity-40">
+<div class="w-10 h-10 border border-outline rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">brand_awareness</span>
+</div>
+<div class="w-10 h-10 border border-outline rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+</div>
+<div class="w-10 h-10 border border-outline rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-8 pt-4 bg-[#fdfcfb]/90 dark:bg-[#1a1c1c]/90 backdrop-blur-2xl rounded-t-[2rem] shadow-[0_-4px_24px_rgba(0,0,0,0.04)] border-t border-[#919bad]/10 md:hidden">
+<a class="flex flex-col items-center justify-center text-[#919bad] dark:text-[#546E7A] hover:text-[#4E342E] transition-opacity duration-400" href="#">
+<span class="material-symbols-outlined">theater_comedy</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest mt-1">Atelier</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#919bad] dark:text-[#546E7A] hover:text-[#4E342E] transition-opacity duration-400" href="#">
+<span class="material-symbols-outlined">music_note</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest mt-1">Lessons</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#919bad] dark:text-[#546E7A] hover:text-[#4E342E] transition-opacity duration-400" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest mt-1">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#361F1a] dark:text-[#EFEBE9] scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Manrope'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

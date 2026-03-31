@@ -1,0 +1,112 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+function normalizePhone(phone) {
+  return String(phone || '').replace(/\s+/g, '').replace(/-/g, '')
+}
+
+export default function LoginPage({ teacherAccount, studentAccounts, onLoginSuccess }) {
+  const navigate = useNavigate()
+  const [role, setRole] = useState('student')
+  const defaultStudentAccount = studentAccounts[0]
+  const [phone, setPhone] = useState(defaultStudentAccount?.phone || '')
+  const [password, setPassword] = useState(defaultStudentAccount?.password || '')
+
+  function switchRole(nextRole) {
+    setRole(nextRole)
+    if (nextRole === 'teacher') {
+      setPhone(teacherAccount.phone)
+      setPassword(teacherAccount.password)
+      return
+    }
+    setPhone(defaultStudentAccount?.phone || '')
+    setPassword(defaultStudentAccount?.password || '')
+  }
+
+  function handleLogin(event) {
+    event.preventDefault()
+    const normalizedPhone = normalizePhone(phone)
+    const normalizedPassword = String(password || '').trim()
+    let targetAccount = null
+    if (role === 'teacher') {
+      if (
+        normalizedPhone === normalizePhone(teacherAccount.phone) &&
+        normalizedPassword === String(teacherAccount.password || '').trim()
+      ) {
+        targetAccount = teacherAccount
+      }
+    } else {
+      targetAccount = studentAccounts.find(
+        (account) =>
+          normalizePhone(account.phone) === normalizedPhone &&
+          String(account.password || '').trim() === normalizedPassword
+      )
+    }
+    if (!targetAccount) {
+      window.alert('手机号或密码错误。')
+      return
+    }
+    onLoginSuccess?.({
+      role,
+      account: targetAccount
+    })
+    window.alert('登录成功')
+    if (role === 'teacher') {
+      navigate('/teacher')
+      return
+    }
+    navigate('/student/home')
+  }
+
+  return (
+    <main className="login-page-wrap">
+      <section className="login-page-card">
+        <div className="login-brand">
+          <h1>ZiyangMusicStudio</h1>
+          <p>专业音乐学习平台</p>
+        </div>
+
+        <div className="login-segment">
+          <button
+            className={`login-segment-btn${role === 'student' ? ' active' : ''}`}
+            onClick={() => switchRole('student')}
+            type="button"
+          >
+            学生登录
+          </button>
+          <button
+            className={`login-segment-btn${role === 'teacher' ? ' active' : ''}`}
+            onClick={() => switchRole('teacher')}
+            type="button"
+          >
+            教师登录
+          </button>
+        </div>
+
+        <form className="login-form" onSubmit={handleLogin}>
+          <label>
+            <span>手机号</span>
+            <input
+              onChange={(event) => setPhone(event.target.value)}
+              placeholder="请输入手机号"
+              type="tel"
+              value={phone}
+            />
+          </label>
+          <label>
+            <span>密码</span>
+            <input
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="请输入密码"
+              type="password"
+              value={password}
+            />
+          </label>
+          <button className="login-submit-btn" type="submit">
+            登录
+          </button>
+        </form>
+      </section>
+    </main>
+  )
+}
