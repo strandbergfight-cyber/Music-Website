@@ -20,7 +20,7 @@ function copyNetlifyRedirectsPlugin() {
 }
 
 export default defineConfig({
-  base: '/ZiyangMusicStudio/',
+  base: '/Music-Website/',
   plugins: [react(), copyNetlifyRedirectsPlugin()],
   publicDir: 'stitch',
   envPrefix: ['VITE_', 'JSONBIN_']
