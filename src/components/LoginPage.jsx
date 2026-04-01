@@ -5,6 +5,19 @@ function normalizePhone(phone) {
   return String(phone || '').replace(/\s+/g, '').replace(/-/g, '')
 }
 
+async function hashPassword(rawPassword) {
+  const value = String(rawPassword || '')
+  if (!value) {
+    return ''
+  }
+  const encoder = new TextEncoder()
+  const buffer = encoder.encode(value)
+  const hashBuffer = await crypto.subtle.digest('SHA-256', buffer)
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((item) => item.toString(16).padStart(2, '0'))
+    .join('')
+}
+
 export default function LoginPage({ teacherAccount, studentAccounts, onLoginSuccess }) {
   const navigate = useNavigate()
   const [role, setRole] = useState('student')
@@ -23,23 +36,30 @@ export default function LoginPage({ teacherAccount, studentAccounts, onLoginSucc
     setPassword(defaultStudentAccount?.password || '')
   }
 
-  function handleLogin(event) {
+  async function handleLogin(event) {
     event.preventDefault()
     const normalizedPhone = normalizePhone(phone)
     const normalizedPassword = String(password || '').trim()
+    const normalizedPasswordHash = await hashPassword(normalizedPassword)
     let targetAccount = null
     if (role === 'teacher') {
+      const teacherPlainPassword = String(teacherAccount.password || '').trim()
+      const teacherHashPassword = String(teacherAccount.passwordHash || '')
       if (
         normalizedPhone === normalizePhone(teacherAccount.phone) &&
-        normalizedPassword === String(teacherAccount.password || '').trim()
+        (normalizedPassword === teacherPlainPassword || normalizedPasswordHash === teacherHashPassword)
       ) {
         targetAccount = teacherAccount
       }
     } else {
       targetAccount = studentAccounts.find(
         (account) =>
-          normalizePhone(account.phone) === normalizedPhone &&
-          String(account.password || '').trim() === normalizedPassword
+          account.enabled !== false &&
+          (normalizePhone(account.phone) === normalizedPhone ||
+            normalizePhone(account.username) === normalizedPhone) &&
+          (String(account.password || '').trim() === normalizedPassword ||
+            String(account.passwordHash || '') === normalizedPasswordHash ||
+            (String(account.password || '').trim() === '' && normalizedPassword === '123456'))
       )
     }
     if (!targetAccount) {

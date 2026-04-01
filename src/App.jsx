@@ -68,8 +68,17 @@ function splitTimeRange(timeRange) {
 
 function AppShell() {
   const location = useLocation()
-  const { sharedStore, setSharedStore, authState, setAuthState, studentProfile, setStudentProfile, instrumentList } =
-    useAppContext()
+  const {
+    sharedStore,
+    setSharedStore,
+    authState,
+    setAuthState,
+    studentProfile,
+    setStudentProfile,
+    instrumentList,
+    syncMeta,
+    createStudentAccount
+  } = useAppContext()
 
   const students = sharedStore.students || []
   const teachers = sharedStore.teachers || []
@@ -340,7 +349,7 @@ function AppShell() {
     })
   }
 
-  function handleAddTeacherStudent(payload) {
+  async function handleAddTeacherStudent(payload) {
     const phone = normalizePhone(payload.phone)
     const name = payload.name.trim()
     if (!phone || !name) {
@@ -351,15 +360,17 @@ function AppShell() {
       window.alert('该手机号已存在。')
       return
     }
-    setSharedStore((prev) => ({
-      ...prev,
-      students: [
-        ...prev.students,
-        { id: `stu-${Date.now()}`, name, phone, password: '123456', remainingLessons: 20, totalLessons: 20 }
-      ]
-    }))
+    const result = await createStudentAccount({
+      name,
+      phone,
+      password: '123456'
+    })
+    if (!result?.success) {
+      window.alert(result?.message || '创建学生失败，请稍后再试。')
+      return
+    }
     appendSyncLog(`老师创建学生账号：${name}（${phone}）`)
-    window.alert(`学生账号已创建：${phone}，初始密码 123456`)
+    window.alert(`学生账号已创建：${result.phone || phone}，初始密码 123456`)
   }
 
   function handleDeleteTeacherStudent(studentId) {
@@ -541,12 +552,30 @@ function AppShell() {
     title: teacher.role || '老师'
   }))
   const teacherAccount = teachers.find((teacher) => teacher.role === '超级管理员') || teachers[0]
+  const syncLabelMap = {
+    local_only: '本地模式',
+    connecting: '云同步连接中',
+    syncing: '云同步中',
+    synced: '云同步正常',
+    error: '云同步异常'
+  }
+  const syncClassMap = {
+    local_only: 'sync-badge local',
+    connecting: 'sync-badge connecting',
+    syncing: 'sync-badge syncing',
+    synced: 'sync-badge synced',
+    error: 'sync-badge error'
+  }
+  const syncState = syncMeta?.state || 'local_only'
 
   return (
     <div className={containerClassName}>
       {!isLoginRoute && authState.isLoggedIn && resolvedRole === 'teacher' && isTeacherRoute && (
         <TopNavigation routes={teacherRoutes} />
       )}
+      {!isLoginRoute && authState.isLoggedIn ? (
+        <div className={syncClassMap[syncState] || 'sync-badge local'}>{syncLabelMap[syncState] || '本地模式'}</div>
+      ) : null}
       <Routes>
         {pageRoutes.map((route) => (
           <Route

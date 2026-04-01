@@ -45,6 +45,13 @@ body {
   gap: 12px;
 }
 
+.teacher-nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .teacher-brand {
   margin: 0;
   color: #f4f7ff;
@@ -55,6 +62,37 @@ body {
 .teacher-link-list {
   display: flex;
   gap: 8px;
+}
+
+.teacher-nav-toggle {
+  display: none;
+  border: 1px solid rgba(219, 229, 255, 0.5);
+  border-radius: 10px;
+  background: transparent;
+  color: #dbe5ff;
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .teacher-nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .teacher-nav-toggle {
+    display: inline-flex;
+  }
+
+  .teacher-link-list {
+    display: none;
+    flex-wrap: wrap;
+  }
+
+  .teacher-link-list.open {
+    display: flex;
+  }
 }
 
 .teacher-link {
@@ -71,6 +109,40 @@ body {
   color: #10206f;
   background: #f7f9ff;
   border-color: #f7f9ff;
+}
+
+.sync-badge {
+  position: fixed;
+  right: 14px;
+  bottom: 74px;
+  z-index: 120;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #fff;
+  border: 1px solid transparent;
+  backdrop-filter: blur(6px);
+}
+
+.sync-badge.local {
+  background: rgba(107, 114, 128, 0.85);
+  border-color: rgba(209, 213, 219, 0.5);
+}
+
+.sync-badge.connecting,
+.sync-badge.syncing {
+  background: rgba(59, 130, 246, 0.85);
+  border-color: rgba(191, 219, 254, 0.6);
+}
+
+.sync-badge.synced {
+  background: rgba(22, 163, 74, 0.85);
+  border-color: rgba(187, 247, 208, 0.6);
+}
+
+.sync-badge.error {
+  background: rgba(220, 38, 38, 0.88);
+  border-color: rgba(254, 202, 202, 0.6);
 }
 
 .page-shell {
@@ -288,6 +360,44 @@ body {
   border-radius: 999px;
   object-fit: cover;
   border: 2px solid #e1e1dc;
+}
+
+.student-avatar-block {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+}
+
+.student-avatar-upload {
+  cursor: pointer;
+}
+
+.student-avatar-upload input {
+  display: none;
+}
+
+.student-avatar-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.student-avatar-btn {
+  border: 0;
+  border-radius: 999px;
+  background: #fff8f4;
+  color: #3a2621;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.student-avatar-btn input {
+  display: none;
+}
+
+.student-avatar-btn.danger {
+  background: #fddddd;
+  color: #7a1f1f;
 }
 
 .student-panel-header h2 {
@@ -1170,7 +1280,7 @@ body {
 .teacher-contact-qr-image {
   width: min(280px, 100%);
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .teacher-qr-grid {
@@ -1218,15 +1328,61 @@ body {
 .teacher-qr-upload {
   display: inline-block;
   border-radius: 10px;
-  background: #f4f7ff;
-  color: #1a237e;
+  background: rgba(255, 255, 255, 0.16);
+  color: #f4f7ff;
   padding: 8px 12px;
   font-size: 12px;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .teacher-qr-upload input {
   display: none;
+}
+
+.teacher-qr-channel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.teacher-qr-channel-card {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.teacher-qr-channel-title {
+  color: #f4f7ff;
+  font-size: 13px;
+}
+
+.teacher-qr-empty {
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  padding: 20px 12px;
+  text-align: center;
+  color: #dbe5ff;
+  font-size: 12px;
+}
+
+.teacher-qr-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.teacher-qr-delete {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f4f7ff;
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .teacher-manager-grid {
@@ -1371,5 +1527,15 @@ body {
 
   .teacher-manager-grid {
     grid-template-columns: 1fr;
+  }
+
+  
+  .teacher-qr-channel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sync-badge {
+    right: 10px;
+    bottom: 82px;
   }
 }
